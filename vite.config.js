@@ -90,6 +90,7 @@ export default defineConfig({
       plugins: [
         autoprefixer()
       ],
-    }
+    },
+    devSourcemap: true
   }
 });
