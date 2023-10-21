@@ -8,6 +8,8 @@ import liveReload from 'vite-plugin-live-reload';
 
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
+import autoprefixer from 'autoprefixer'
+
 import { readFileSync } from 'fs';
 
 function moveOutputPlugin() {
@@ -83,4 +85,11 @@ export default defineConfig({
     },
     outDir: 'dist',
   },
+  css: {
+    postcss: {
+      plugins: [
+        autoprefixer()
+      ],
+    }
+  }
 });
