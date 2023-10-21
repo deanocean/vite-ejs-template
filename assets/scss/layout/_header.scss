@@ -1,4 +1,12 @@
+@use '/assets/scss/global/mixin' as m;
+@use '/assets/scss/global/variable' as v;
+
 .header{
   background: #ccc;
   font-size: 64px;
+  text-size-adjust: 100%; // test for autoprefixer
+
+  @include m.sp {
+    font-size: 32px;
+  }
 }

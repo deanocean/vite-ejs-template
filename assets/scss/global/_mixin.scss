@@ -1,0 +1,17 @@
+@mixin pc($width: 768px) {
+  @media ($width < width) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (768px <= width <= 1024px) {
+    @content;
+  }
+}
+
+@mixin sp($width: 767px) {
+  @media (width <= $width) {
+    @content;
+  }
+}

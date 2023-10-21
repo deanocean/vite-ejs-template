@@ -1,0 +1,28 @@
+@use '/assets/scss/global/mixin' as m;
+@use '/assets/scss/global/variable' as v;
+
+html {
+  @include m.sp {
+    font-size: calc(100vw / 37.5);
+  }
+}
+
+.pc {
+  @include m.pc {
+    display: block;
+  }
+
+  @include m.sp {
+    display: none;
+  }
+}
+
+.sp {
+  @include m.pc {
+    display: none;
+  }
+
+  @include m.sp {
+    display: block;
+  }
+}
