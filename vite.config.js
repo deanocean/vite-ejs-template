@@ -8,6 +8,8 @@ import liveReload from 'vite-plugin-live-reload';
 
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
+import { readFileSync } from 'fs';
+
 function moveOutputPlugin() {
   return {
     name: 'move-output',
@@ -24,22 +26,34 @@ function moveOutputPlugin() {
   };
 }
 
+const jsonData = JSON.parse(readFileSync('./json/data.json'));
+
 export default defineConfig({
-  // base 的寫法：
-  // base: '/Repository 的名稱/'
-  // base: '/web-layout-training-vite/',
+  // base: '/repository_name/'
   plugins: [
     liveReload(['./layout/**/*.ejs', './pages/**/*.ejs', './pages/**/*.html']),
-    ViteEjsPlugin(),
+    ViteEjsPlugin(jsonData),
     moveOutputPlugin(),
     ViteImageOptimizer({
+      png: {
+        quality: 80,
+      },
+      jpeg: {
+        quality: 80,
+      },
       jpg: {
-        quality: 80
-      }
+        quality: 80,
+      },
+      tiff: {
+        quality: 80,
+      },
+      webp: {
+        quality: 80,
+      },
     }),
   ],
   server: {
-    // 啟動 server 時預設開啟的頁面
+    // default page that opens when starting the server.
     open: 'pages/index.html',
   },
   preview: {
