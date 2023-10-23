@@ -57,6 +57,7 @@ export default defineConfig({
   server: {
     // default page that opens when starting the server.
     open: 'pages/index.html',
+    host: true,
   },
   preview: {
     open: 'index.html'
